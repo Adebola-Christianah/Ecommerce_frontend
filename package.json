@@ -54,6 +54,7 @@
   },
   "vercel": {
     "build": {
+       "build:ignore-warnings": "CI=false react-scripts build",
       "env": {
         "NODE_OPTIONS": "--openssl-legacy-provider"
       }
