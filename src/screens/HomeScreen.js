@@ -102,7 +102,7 @@ const handleMouseLeaveCategory = () => {
 
 const renderCategories = () => (
   <ul className="space-y-2 bg-white">
-    {categories.map((category) => (
+    {categories?.map((category) => (
       <li
         key={category.id}
         onMouseEnter={() => handleMouseEnter(category.id)}
@@ -166,7 +166,7 @@ const renderSelectedCategory = () => {
         <div className="flex flex-col">
           <div className="font-bold text-gray-700 mb-2  pb-2 text-base">{selectedCategory.name}</div>
           <ul className="space-y-1">
-            {selectedCategory.subcategories.map((subcategory) => (
+            {selectedCategory.subcategories?.map((subcategory) => (
               <li key={subcategory.id}>
                 <Link to={`/subcategory/${subcategory.id}`} className="text-sm text-gray-500 hover:text-gray-800 hover:font-semibold"style={{textDecoration:'none'}}>
                   {subcategory.name}
@@ -178,7 +178,7 @@ const renderSelectedCategory = () => {
       )}
 
       {/* Child Categories */}
-      {selectedCategory.children.length > 0 && selectedCategory.children.map((child) => (
+      {selectedCategory?.children?.length > 0 && selectedCategory?.children?.map((child) => (
         <div key={child.id} className="flex flex-col">
           <div className="font-bold text-gray-600 pb-2 ">
             <Link to={`/category/${child.id}`} className="hover:text-gray-800" style={{textDecoration:'none'}}>
@@ -187,7 +187,7 @@ const renderSelectedCategory = () => {
           </div>
           {child.subcategories && (
             <ul className="space-y-1">
-              {child.subcategories.map((sub) => (
+              {child.subcategories?.map((sub) => (
                 <li key={sub.id}>
                   <Link to={`/subcategory/${sub.id}`} className="text-sm text-gray-500 hover:text-gray-800" style={{textDecoration:'none'}}>
                     {sub.name}
@@ -279,7 +279,7 @@ const renderSelectedCategory = () => {
                        className="flex overflow-x-auto space-x-4 md:p-4 p-1 scrollbar-hidden"
                        style={{ scrollBehavior: 'smooth' }}
                      >
-                       {categories.map((category) => (
+                       {categories?.map((category) => (
                          <div key={category.id} className="flex flex-col items-center flex-shrink-0">
                            <div
                              className="rounded-lg cursor-pointer hover:shadow-lg transition-shadow"
@@ -330,7 +330,7 @@ const renderSelectedCategory = () => {
                             </h2>
                         </div>
                         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                            {products.map((product) => (
+                            {products?.map((product) => (
                                 <Product
                                     key={product._id}
                                     product={product}
@@ -362,8 +362,8 @@ const renderSelectedCategory = () => {
             <Countdown end_date={offer.end_date} />
         )}
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {offer.products && Array.isArray(offer.products) && offer.products.map((product) => (
-            <Product key={product._id} product={product} />
+        {offer.products && Array.isArray(offer?.products) && offer?.products?.map((product) => (
+            <Product key={product?._id} product={product} />
         ))}
     </div>
 </div>

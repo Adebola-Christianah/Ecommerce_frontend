@@ -87,14 +87,14 @@ function CategoryScreen({ match }) {
             </h1>
                     {offersGroupedBySpecialOffer.length > 0 && (
                         <div className='my-4'>
-                            {offersGroupedBySpecialOffer.map(offer => (
+                            {offersGroupedBySpecialOffer?.map(offer => (
                                 <div key={offer.id} className='bg-white rounded-md my-4'>
                                     <h2 className="text-xl font-semibold bg-yellow-200 px-4 py-2 rounded-t-md">
                                         {offer.offer_type}
                                     </h2>
                                     <div className='p-4'>
                                         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                                            {offer.products.map(product => (
+                                            {offer.products?.map(product => (
                                                 <Product key={product._id} product={product} />
                                             ))}
                                         </div>
@@ -105,7 +105,7 @@ function CategoryScreen({ match }) {
                     )}
 
                     {/* Products by Subcategory */}
-                    {Object.keys(productsBySubcategory).map(subcategory => (
+                    {Object.keys(productsBySubcategory)?.map(subcategory => (
                         <div key={subcategory} className='bg-white rounded-lg my-3'>
                             <div className="relative text-center">
                                 {productsBySubcategory[subcategory][0].subcategories[0].image ? (
@@ -129,7 +129,7 @@ function CategoryScreen({ match }) {
                             </div>
                             <div className='p-4'>
                                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                                    {productsBySubcategory[subcategory].map(product => (
+                                    {productsBySubcategory[subcategory]?.map(product => (
                                         <Product key={product._id} product={product} />
                                     ))}
                                 </div>
