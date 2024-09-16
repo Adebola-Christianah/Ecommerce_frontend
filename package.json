@@ -51,5 +51,12 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.4"
+  },
+  "vercel": {
+    "build": {
+      "env": {
+        "NODE_OPTIONS": "--openssl-legacy-provider"
+      }
+    }
   }
 }
