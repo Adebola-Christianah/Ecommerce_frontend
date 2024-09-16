@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { listProductDetails, createProductReview } from '../actions/productActions';
+import { listProductDetails } from '../actions/productActions';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 import Rating from '../components/Rating';
 import Loader from '../components/Loader';
@@ -12,7 +12,7 @@ import { ReactComponent as ArrowUp } from '../images/arrowup.svg';
 import { ReactComponent as ArrowDown } from '../images/arrowdown.svg';
 import { ReactComponent as DeliveryIcon } from '../images/icon-delivery.svg';
 import { ReactComponent as ReturnIcon } from '../images/Icon-return.svg';
-import { addToCart, removeFromCart } from '../actions/cartActions';
+import { addToCart, } from '../actions/cartActions';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -25,19 +25,16 @@ function ProductScreen({ match, history }) {
     const [selectedSize, setSelectedSize] = useState('');
 
     const thumbnailsRef = useRef(null);
-
+    console.log(rating,comment)
     const dispatch = useDispatch();
 
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, error, product } = productDetails;
 
-    const userLogin = useSelector((state) => state.userLogin);
-    const { userInfo } = userLogin;
 
     const productReviewCreate = useSelector((state) => state.productReviewCreate);
     const {
-        loading: loadingProductReview,
-        error: errorProductReview,
+      
         success: successProductReview,
     } = productReviewCreate;
     const scrollThumbnails = (direction, isHorizontal = false) => {
@@ -80,15 +77,15 @@ function ProductScreen({ match, history }) {
     
     
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(
-            createProductReview(match.params.id, {
-                rating,
-                comment,
-            })
-        );
-    };
+    // const submitHandler = (e) => {
+    //     e.preventDefault();
+    //     dispatch(
+    //         createProductReview(match.params.id, {
+    //             rating,
+    //             comment,
+    //         })
+    //     );
+    // };
 
     const incrementQty = () => {
         if (qty < product.countInStock) {

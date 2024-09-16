@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Image from '../images/5135453_2673283.jpg'
 const ComingSoon = () => {
   const history = useHistory();
 

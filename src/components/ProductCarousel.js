@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
 import Loader from './Loader';
 import Message from './Message';
 
 import PhoneImage from '../images/phone image.jpg';
-import Students from '../images/boy-helping-his-friend-with-books-removebg-preview.png';
 import { ReactComponent as AppleIcon } from '../images/Apple_gray.svg';
 import { ReactComponent as ArrowRight } from '../images/ArrowRight.svg';
 
 
 function ProductCarousel({error,loading,products}) {
-    const dispatch = useDispatch();
+  
 
   
     return (

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card } from 'react-bootstrap';
-import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import ConfirmationModal from '../components/ConfirmationModal';
 import EmptyImage from '../images/empty_cart-removebg-preview.png'
@@ -13,7 +12,6 @@ function CartScreen({ history }) {
     const { cartItems } = useSelector(state => state.cart);
 
     const [quantityErrors, setQuantityErrors] = useState({});
-    const [showConfirm, setShowConfirm]= useState(false);
     const [couponCode, setCouponCode] = useState('');
     const [discount, setDiscount] = useState(0);
     const [showModal, setShowModal] = useState(null); // Store ID of the item to delete
