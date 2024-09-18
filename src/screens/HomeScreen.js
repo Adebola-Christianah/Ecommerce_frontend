@@ -405,6 +405,12 @@ const renderSelectedCategory = () => {
             </div>
         </div>
                </div>
+               
+               
+              
+               <div className='flex items-center justify-center h-64 w-64 rounded-full text-black bg-red-500 mx-auto'>
+               <div className='flex items-center justify-center h-48 w-48 rounded-full text-black bg-white mx-auto'>any text</div>
+               </div>
             <Footer/>
                 </>
             )}
