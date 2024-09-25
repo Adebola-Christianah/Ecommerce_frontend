@@ -7,7 +7,7 @@ import {
 
 // Add item to wishlist
 export const addToWishlist = (id) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/products/${id}/`);
+    const { data } = await axios.get(`https://ecommerce-app-md2d.onrender.com/api/products/${id}/`);
 
     dispatch({
         type: WISHLIST_ADD_ITEM,
