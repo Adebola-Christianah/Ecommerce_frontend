@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { listProductDetails } from '../actions/productActions';
+import { listProductDetails,createProductReview  } from '../actions/productActions';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 import Rating from '../components/Rating';
 import Loader from '../components/Loader';
@@ -14,7 +14,7 @@ import { ReactComponent as DeliveryIcon } from '../images/icon-delivery.svg';
 import { ReactComponent as ReturnIcon } from '../images/Icon-return.svg';
 import { addToCart, } from '../actions/cartActions';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer';;
 
 function ProductScreen({ match, history }) {
     const [qty, setQty] = useState(1);
@@ -23,7 +23,7 @@ function ProductScreen({ match, history }) {
     const [mainImage, setMainImage] = useState('');
     const [selectedColor, setSelectedColor] = useState('');
     const [selectedSize, setSelectedSize] = useState('');
-
+  
     const thumbnailsRef = useRef(null);
     console.log(rating,comment)
     const dispatch = useDispatch();
@@ -33,6 +33,10 @@ function ProductScreen({ match, history }) {
 
 
     const productReviewCreate = useSelector((state) => state.productReviewCreate);
+    const {
+        loading: loadingProductReview,
+        error: errorProductReview,
+    } = productReviewCreate;
     const {
       
         success: successProductReview,
@@ -171,7 +175,17 @@ function ProductScreen({ match, history }) {
             </div>
         );
     };
-
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatch(
+            createProductReview(match.params.id, {
+                rating,
+                comment,
+            })
+        );
+    };
     return (
         <div className=" w-full">
            
@@ -365,6 +379,61 @@ function ProductScreen({ match, history }) {
                         </ul>
                     </div>
                 </div>
+                <div className="mt-8">
+                <h4 className="text-xl font-semibold">Reviews</h4>
+                {product.reviews.length === 0 && <Message variant='info'>No Reviews</Message>}
+                <ul className="space-y-4">
+                    {product.reviews.map((review) => (
+                        <li key={review._id} className="border-b pb-4">
+                            <strong>{review.name}</strong>
+                            <Rating value={review.rating} color='#f8e825' />
+                            <p>{review.createdAt.substring(0, 10)}</p>
+                            <p>{review.comment}</p>
+                        </li>
+                    ))}
+                    <li>
+                        <h4 className="text-lg font-semibold">Write a review</h4>
+                        {loadingProductReview && <Loader />}
+                        {successProductReview && <Message variant='success'>Review Submitted</Message>}
+                        {errorProductReview && <Message variant='danger'>{errorProductReview}</Message>}
+                        {userInfo ? (
+                            <form onSubmit={submitHandler}>
+                                <div className="mb-4">
+                                    <label htmlFor="rating">Rating</label>
+                                    <select
+                                        id="rating"
+                                        value={rating}
+                                        onChange={(e) => setRating(e.target.value)}
+                                        className="block w-full mt-1 p-2 border rounded"
+                                    >
+                                        <option value="">Select...</option>
+                                        <option value="1">1 - Poor</option>
+                                        <option value="2">2 - Fair</option>
+                                        <option value="3">3 - Good</option>
+                                        <option value="4">4 - Very Good</option>
+                                        <option value="5">5 - Excellent</option>
+                                    </select>
+                                </div>
+                                <div className="mb-4">
+                                    <label htmlFor="comment">Comment</label>
+                                    <textarea
+                                        id="comment"
+                                        rows="3"
+                                        value={comment}
+                                        onChange={(e) => setComment(e.target.value)}
+                                        className="block w-full mt-1 p-2 border rounded"
+                                    ></textarea>
+                                </div>
+                                <button type="submit" className="bg-red-500 text-white px-4 py-2 rounded">
+                                    Submit
+                                </button>
+                            </form>
+                        ) : (
+                            <Message variant='info'>Please <Link to='/login'>sign in</Link> to write a review</Message>
+                        )}
+                    </li>
+                </ul>
+            </div>
                 </div>
                 <Footer/>
                </div>
