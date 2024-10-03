@@ -69,10 +69,11 @@ function ProductScreen({ match, history }) {
     console.log(product)
     const addToCartHandler = () => {
         //const queryParams = `qty=${qty}&color=${selectedColor}&size=${selectedSize}`;
-        history.push('/cart');
+       
         dispatch(addToCart(match.params.id, qty, selectedColor, selectedSize));
         console.log(match.params.id,'match id')
         console.log(`Selected Color: ${selectedColor}, Selected Size: ${selectedSize}`,match.params.id);
+        history.push('/cart');
     };
     
     
