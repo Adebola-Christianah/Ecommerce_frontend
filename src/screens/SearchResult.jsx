@@ -47,56 +47,36 @@ function SearchResult({ history }) {
 
     return (
         <>
-           {
-    products.length===0 ?
-   <ErrorPage/>:
-   <div className="w-full h-screen mx-auto  bg-white">
-         
+            {loadingData ? (
+                <Loader /> // Show loader while fetching
+            ) : error ? (
+                <ErrorPage /> // Show error if something goes wrong
+            ) : products.length === 0 ? (
+                <ErrorPage /> // Show error if no products are found
+            ) : (
+                <div className="w-full mx-auto bg-white">
+                    <Header />
+                    <div className="bg-white p-4 rounded-lg md:w-[90%] lg:w-full mx-auto">
+                        <div className="my-3 flex items-center h-12 gap-3">
+                            <div className="text-2xl font-semibold">
+                                Search {products.length > 1 ? 'results' : 'result'} for {searched}
+                            </div>
+                            <div className="text-sm text-gray-400 flex">
+                                {products.length} {products.length > 1 ? 'results' : 'result'}
+                            </div>
+                        </div>
 
-   {loadingData ? (
-       <Loader /> // Show a single loader while data is being fetched
-   ) : (
-       <>
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                            {products.map((product) => (
+                                <Product key={product._id} product={product} />
+                            ))}
+                        </div>
 
-          
-           {error ? (
-               <ErrorPage/>
-           ) : (
-
-               <div>
-                   <Header/>
-                   <div className="bg-white p-4 rounded-lg md:w-[90%] lg:w-full mx-auto h-screen">
- {products.length>0 &&                  <div className="my-3 flex items-center h-12 gap-3">
-<div className="text-2xl font-semibold ">
-
-Search {products.length > 1? 'results' : 'result'} for {searched}
-</div>
-<div className="text-sm text-gray-400 flex ">
-{products.length} {products.length > 1 ? 'results' : 'result'}
-</div>
-</div>}
-
-                   <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                       {products.map((product) => (
-                           <Product
-                               key={product._id}
-                               product={product}
-                           />
-                       ))}
-                   </div>
-                   <Paginate
-                       page={page}
-                       pages={pages}
-                       keyword={keyword}
-                   />
-               </div>
-                   <Footer/>
-               </div>
-           )}
-       </>
-   )}
-</div>
-}
+                        <Paginate page={page} pages={pages} keyword={keyword} />
+                    </div>
+                    <Footer />
+                </div>
+            )}
         </>
        
     );

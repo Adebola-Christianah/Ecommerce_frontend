@@ -7,7 +7,7 @@ const Loader = () => {
    
       <img
         src={Logo} // Replace with the actual path to your SVG
-        alt="Loading logo"
+        alt=""
         className="w-12 h-12 breathing-logo  "
       />
     </div>
