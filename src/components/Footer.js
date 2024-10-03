@@ -31,9 +31,9 @@ const Footer = () => {
         {/* Support Section */}
         <div>
           <h3 className="font-bold text-lg text-white">Support</h3>
-          <p>111 Bijoy sarani, Dhaka, DH 1216, Bangladesh.</p>
+          <p>6A Marigold, Emerald Estate, Ajah</p>
           <p>exclusive@gmail.com</p>
-          <p>+88015-88888-9999</p>
+          <p>+234 810 669 4443</p>
         </div>
 
         {/* Account Section */}
@@ -41,22 +41,22 @@ const Footer = () => {
           <h3 className="font-bold text-lg text-white">Account</h3>
           <ul>
             <li className="mt-2 text-white">
-              <Link to="#" className="text-white">
+              <Link to="/profile" className="text-white">
                 My Account
               </Link>
             </li>
             <li className="mt-2 text-white">
-              <Link to="#" className="text-white">
+              <Link to="/login" className="text-white">
                 Login / Register
               </Link>
             </li>
             <li className="mt-2 text-white">
-              <Link to="#" className="text-white">
+              <Link to="/cart" className="text-white">
                 Cart
               </Link>
             </li>
             <li className="mt-2 text-white">
-              <Link to="#" className="text-white">
+              <Link to="/wishlist" className="text-white">
                 Wishlist
               </Link>
             </li>
