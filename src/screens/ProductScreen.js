@@ -172,7 +172,7 @@ function ProductScreen({ match, history }) {
     };
 
     return (
-        <div className=" mx-auto ">
+        <div className=" w-full">
            
             {loading ? (
                 <Loader />
