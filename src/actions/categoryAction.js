@@ -14,7 +14,7 @@ export const listCategories = () => async (dispatch) => {
     try {
         dispatch({ type: CATEGORY_LIST_REQUEST })
 
-        const { data } = await axios.get('http://127.0.0.1:8000/api/categories/')
+        const { data } = await axios.get('https://ecommerce-app-md2d.onrender.com/api/categories/')
 
         dispatch({
             type: CATEGORY_LIST_SUCCESS,
@@ -34,7 +34,7 @@ export const listProductsByCategory = (categoryId) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST });
 
-        const { data } = await axios.get(`http://127.0.0.1:8000/api/categories/${categoryId}`); // Adjust the API endpoint as necessary
+        const { data } = await axios.get(`https://ecommerce-app-md2d.onrender.com/api/categories/${categoryId}`); // Adjust the API endpoint as necessary
 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
