@@ -21,7 +21,7 @@ function ProductCarousel({error,loading,products}) {
             <Message variant="danger">{error}</Message>
         ) : (
    <Carousel pause="hover" className="w-full  h-[14rem] md:h-[24rem]">
-{products && products.media.map((product) => (
+{products && products?.media?.map((product) => (
   <Carousel.Item key={product._id} className="w-full h-[14rem] md:h-[24rem] ">
   <Link
   to={

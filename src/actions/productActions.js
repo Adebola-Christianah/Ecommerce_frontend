@@ -46,7 +46,7 @@ export const listProducts = (keyword = '') => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST })
 
-        const { data } = await axios.get(`https://ecommerce-app-md2d.onrender.com/api/products${keyword}`)
+        const { data } = await axios.get(`http://127.0.0.1:8000/api/products${keyword}`)
 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
@@ -67,7 +67,7 @@ export const listTopProducts = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_TOP_REQUEST })
 
-        const { data } = await axios.get(`https://ecommerce-app-md2d.onrender.com/api/products/top/`)
+        const { data } = await axios.get(`http://127.0.0.1:8000/api/products/top/`)
 
         dispatch({
             type: PRODUCT_TOP_SUCCESS,
@@ -89,7 +89,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`https://ecommerce-app-md2d.onrender.com/api/products/${id}`)
+        const { data } = await axios.get(`http://127.0.0.1:8000/api/products/${id}`)
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -125,7 +125,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `https://ecommerce-app-md2d.onrender.com/api/products/delete/${id}/`,
+            `http://127.0.0.1:8000/api/products/delete/${id}/`,
             config
         )
 
@@ -165,7 +165,7 @@ export const createProduct = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `https://ecommerce-app-md2d.onrender.com/api/products/create/`,
+            `http://127.0.0.1:8000/api/products/create/`,
             {},
             config
         )
@@ -205,7 +205,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `https://ecommerce-app-md2d.onrender.com/api/products/update/${product._id}/`,
+            `http://127.0.0.1:8000/api/products/update/${product._id}/`,
             product,
             config
         )
@@ -249,7 +249,7 @@ export const createProductReview = (productId, review) => async (dispatch, getSt
         }
 
         const { data } = await axios.post(
-            `https://ecommerce-app-md2d.onrender.com/api/products/${productId}/reviews/`,
+            `http://127.0.0.1:8000/api/products/${productId}/reviews/`,
             review,
             config
         )
@@ -273,7 +273,7 @@ export const listProductsBySubcategory = (subcategoryId) => async (dispatch) => 
     try {
         dispatch({ type: PRODUCT_LIST_BY_SUBCATEGORY_REQUEST });
 
-        const { data } = await axios.get(`https://ecommerce-app-md2d.onrender.com/api/categories/subcategories/${subcategoryId}/products/`);
+        const { data } = await axios.get(`http://127.0.0.1:8000/api/categories/subcategories/${subcategoryId}/products/`);
         dispatch({
             type: PRODUCT_LIST_BY_SUBCATEGORY_SUCCESS,
             payload: data,
@@ -292,7 +292,7 @@ export const listSpecialOffers = () => async (dispatch) => {
     try {
         dispatch({ type: SPECIAL_OFFER_LIST_REQUEST });
 
-        const { data } = await axios.get('https://ecommerce-app-md2d.onrender.com/api/special-offers/');
+        const { data } = await axios.get('http://127.0.0.1:8000/api/special-offers/');
 
         dispatch({
             type: SPECIAL_OFFER_LIST_SUCCESS,

@@ -33,6 +33,7 @@ function ProductScreen({ match, history }) {
 
 
     const productReviewCreate = useSelector((state) => state.productReviewCreate);
+    const productOrder = useSelector((state) => state.productReviewCreate);
     const {
         loading: loadingProductReview,
         error: errorProductReview,
@@ -378,8 +379,7 @@ function ProductScreen({ match, history }) {
                             </ul>
                         </ul>
                     </div>
-                </div>
-                <div className="mt-8">
+                    <div className="mt-8">
                 <h4 className="text-xl font-semibold">Reviews</h4>
                 {product.reviews.length === 0 && <Message variant='info'>No Reviews</Message>}
                 <ul className="space-y-4">
@@ -434,6 +434,8 @@ function ProductScreen({ match, history }) {
                     </li>
                 </ul>
             </div>
+                </div>
+            
                 </div>
                 <Footer/>
                </div>

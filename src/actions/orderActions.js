@@ -49,7 +49,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `https://ecommerce-app-md2d.onrender.com/api/orders/add/`,
+            `http://127.0.0.1:8000/api/orders/add/`,
             order,
             config
         )
@@ -96,7 +96,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `https://ecommerce-app-md2d.onrender.com/api/orders/${id}/`,
+            `http://127.0.0.1:8000/api/orders/${id}/`,
             config
         )
 
@@ -136,7 +136,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `https://ecommerce-app-md2d.onrender.com/api/orders/${id}/pay/`,
+            `http://127.0.0.1:8000/api/orders/${id}/pay/`,
             paymentResult,
             config
         )
@@ -176,7 +176,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `https://ecommerce-app-md2d.onrender.com/api/orders/${order._id}/deliver/`,
+            `http://127.0.0.1:8000/api/orders/${order._id}/deliver/`,
             {},
             config
         )
@@ -217,7 +217,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `https://ecommerce-app-md2d.onrender.com/api/orders/myorders/`,
+            `http://127.0.0.1:8000/api/orders/myorders/`,
             config
         )
 
@@ -256,7 +256,7 @@ export const listOrders = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `https://ecommerce-app-md2d.onrender.com/api/orders/`,
+            `http://127.0.0.1:8000/api/orders/`,
             config
         )
 

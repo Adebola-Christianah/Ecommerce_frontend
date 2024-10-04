@@ -50,7 +50,7 @@ export const login = (email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            'https://ecommerce-app-md2d.onrender.com/api/users/login/',
+            'http://127.0.0.1:8000/api/users/login/',
             { 'username': email, 'password': password },
             config
         )
@@ -95,7 +95,7 @@ export const register = (name, email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post(
-            'https://ecommerce-app-md2d.onrender.com/api/users/register/',
+            'http://127.0.0.1:8000/api/users/register/',
             { 'name': name, 'email': email, 'password': password },
             config
         )
@@ -141,7 +141,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `https://ecommerce-app-md2d.onrender.com/api/users/${id}/`,
+            `http://127.0.0.1:8000/api/users/${id}/`,
             config
         )
 
@@ -180,7 +180,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `https://ecommerce-app-md2d.onrender.com/api/users/profile/update/`,
+            `http://127.0.0.1:8000/api/users/profile/update/`,
             user,
             config
         )
@@ -226,7 +226,7 @@ export const listUsers = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `https://ecommerce-app-md2d.onrender.com/api/users/`,
+            `http://127.0.0.1:8000/api/users/`,
             config
         )
 
@@ -265,7 +265,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.delete(
-            `https://ecommerce-app-md2d.onrender.com/api/users/delete/${id}/`,
+            `http://127.0.0.1:8000/api/users/delete/${id}/`,
             config
         )
 
@@ -304,7 +304,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `https://ecommerce-app-md2d.onrender.com/api/users/update/${user._id}/`,
+            `http://127.0.0.1:8000/api/users/update/${user._id}/`,
             user,
             config
         )
