@@ -62,10 +62,10 @@ const handleMouseLeaveCategory = () => {
 };
 const renderCategories = () => (
     <ul className="space-y-2 bg-white">
-        {categories.map((category) => (
+        {categories?.map((category) => (
             <li
-                key={category.id}
-                onMouseEnter={() => handleMouseEnter(category.id)}
+                key={category?.id}
+                onMouseEnter={() => handleMouseEnter(category?.id)}
                 onMouseLeave={handleMouseLeave}
                 className="cursor-pointer py-2 px-4"
             >
@@ -96,7 +96,7 @@ const renderCategories = () => (
 );
 
 const renderSelectedCategory = () => {
-    const selectedCategory = categories.find((category) => category.id === hoveredCategory);
+    const selectedCategory = categories?.find((category) => category?.id === hoveredCategory);
     if (!selectedCategory) return null;
 
     return (
@@ -106,13 +106,13 @@ const renderSelectedCategory = () => {
             onMouseLeave={handleMouseLeaveCategory}
         >
             {/* Subcategories */}
-            {selectedCategory.subcategories.length > 0 && (
+            {selectedCategory?.subcategories?.length > 0 && (
                 <div className="flex flex-col">
                     <div className="font-semibold text-base text-gray-700 mb-2">
-                        {selectedCategory.name}-+
+                        {selectedCategory?.name}-+
                     </div>
                     <ul className="space-y-1">
-                        {selectedCategory.subcategories.map((subcategory) => (
+                        {selectedCategory?.subcategories?.map((subcategory) => (
                             <li key={subcategory.id}>
                                 <Link
                                     to={`/subcategory/${subcategory.id}`}
@@ -129,7 +129,7 @@ const renderSelectedCategory = () => {
             )}
 
             {/* Child Categories */}
-            {selectedCategory.children.length > 0 && selectedCategory.children.map((child) => (
+            {selectedCategory?.children?.length > 0 && selectedCategory.children.map((child) => (
                 <div key={child.id} className="flex flex-col">
                     <div className="font-semibold text-gray-600 pb-2 text-base hover:text-gray-800 ">
                         <Link
@@ -143,7 +143,7 @@ const renderSelectedCategory = () => {
                     </div>
                     {child.subcategories && (
                         <ul className="space-y-1">
-                            {child.subcategories.map((sub) => (
+                            {child?.subcategories?.map((sub) => (
                                 <li key={sub.id}>
                                     <Link
                                         to={`/subcategory/${sub.id}`}
