@@ -1,0 +1,12 @@
+version: 1
+services:
+  - type: web
+    name: Ecommerce_frontend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    staticPublishPath: build
+    routes:
+      - src: /(.*)
+        dest: /
