@@ -6,8 +6,8 @@ const Loader = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-white ">
       <div className='breathing-logo '>
       <svg
-  height="24px"
-  width="24px"
+  height="36px"
+  width="36px"
   version="1.1"
   id="Layer_1"
   xmlns="http://www.w3.org/2000/svg"
