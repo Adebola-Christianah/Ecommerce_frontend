@@ -203,7 +203,26 @@ const renderSelectedCategory = () => {
                     {/* Logo */}
                     <div className="flex items-center  flex-1 ml-1">
                             <Link to="/" className="flex items-center text-[#DB4444] font-bold text-[24px] no-underline gap-1 " style={{textDecoration:'none'}}>
-                            <svg height="24px" width="24px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.016 512.016" xml:space="preserve" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="145.544,151.36 105.184,31.92 0.68,31.92 0.68,0 128.096,0 175.784,141.136 "></polygon> <polygon style="fill:#FFD67\;" points="68.128,124.56 511.336,124.56 426.856,361.584 141.936,361.584 "></polygon> <circle cx="377.128" cy="450.56" r="61.456"></circle> <circle cx="191.752" cy="450.56" r="61.456"></circle> <polygon style="fill:#FF583E;" points="325.28,52.496 451.744,180.664 325.28,308.816 203.936,308.816 330.608,180.664 203.936,52.496 "></polygon> </g></svg>
+                            <svg
+  height="24px"
+  width="24px"
+  version="1.1"
+  id="Layer_1"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512.016 512.016"
+  fill="#000000"
+  stroke="#000000"
+>
+  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+  <g id="SVGRepo_iconCarrier">
+    <polygon points="145.544,151.36 105.184,31.92 0.68,31.92 0.68,0 128.096,0 175.784,141.136"></polygon>
+    <polygon style={{ fill: '#FFD67' }} points="68.128,124.56 511.336,124.56 426.856,361.584 141.936,361.584"></polygon>
+    <circle cx="377.128" cy="450.56" r="61.456"></circle>
+    <circle cx="191.752" cy="450.56" r="61.456"></circle>
+    <polygon style={{ fill: '#FF583E' }} points="325.28,52.496 451.744,180.664 325.28,308.816 203.936,308.816 330.608,180.664 203.936,52.496"></polygon>
+  </g>
+</svg>
                             <span className=" md:text-lg text-base ">Exclusive</span>
                         </Link>
                         <form className="hidden md:flex max-w-lg mx-auto" onSubmit={submitHandler}>
@@ -318,7 +337,26 @@ const renderSelectedCategory = () => {
     <div className="flex items-center justify-between px-4">
       {/* Logo and Close Button */}
       <Link to="/" className="flex items-center text-[#DB4444] font-bold text-[24px] no-underline" style={{textDecoration:'none'}}>
-      <svg height="24px" width="24px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.016 512.016" xml:space="preserve" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="145.544,151.36 105.184,31.92 0.68,31.92 0.68,0 128.096,0 175.784,141.136 "></polygon> <polygon style="fill:#FFD67\;" points="68.128,124.56 511.336,124.56 426.856,361.584 141.936,361.584 "></polygon> <circle cx="377.128" cy="450.56" r="61.456"></circle> <circle cx="191.752" cy="450.56" r="61.456"></circle> <polygon style="fill:#FF583E;" points="325.28,52.496 451.744,180.664 325.28,308.816 203.936,308.816 330.608,180.664 203.936,52.496 "></polygon> </g></svg>Exclusive
+      <svg
+  height="24px"
+  width="24px"
+  version="1.1"
+  id="Layer_1"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512.016 512.016"
+  fill="#000000"
+  stroke="#000000"
+>
+  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+  <g id="SVGRepo_iconCarrier">
+    <polygon points="145.544,151.36 105.184,31.92 0.68,31.92 0.68,0 128.096,0 175.784,141.136"></polygon>
+    <polygon style={{ fill: '#FFD67' }} points="68.128,124.56 511.336,124.56 426.856,361.584 141.936,361.584"></polygon>
+    <circle cx="377.128" cy="450.56" r="61.456"></circle>
+    <circle cx="191.752" cy="450.56" r="61.456"></circle>
+    <polygon style={{ fill: '#FF583E' }} points="325.28,52.496 451.744,180.664 325.28,308.816 203.936,308.816 330.608,180.664 203.936,52.496"></polygon>
+  </g>
+</svg><span>Exclusive</span>
       </Link>
       <button type="button" className="-m-2.5 p-2.5 text-gray-700" onClick={() => setMenuOpen(false)}>
         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
