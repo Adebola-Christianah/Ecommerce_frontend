@@ -68,7 +68,7 @@ function ProductCarousel({error,loading,products}) {
         <img
             src={product.img}
             alt={product.name}
-            className="object-contain h-[14rem] md:h-[25rem] max-w-auto rounded-md"
+            className="object-contain h-full md:h-[25rem]  mt-4 md:mt-0  md:max-w-auto rounded-md"
             style={{
              
               position: 'absolute',

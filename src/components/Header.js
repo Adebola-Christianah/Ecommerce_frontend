@@ -184,8 +184,7 @@ const renderSelectedCategory = () => {
            
             </div>
             
-            <div> Discover Deals, Shop with Ease, and Elevate Your Everyday! </div>
-                <div className='flex items-center'> English<Dropdown /></div>
+            <div className='p-3'> Discover Deals, Shop with Ease, and Elevate Your Everyday! </div>
             </div>
 
             <header className="bg-white border-b border-gray-300 lg:px-12">
