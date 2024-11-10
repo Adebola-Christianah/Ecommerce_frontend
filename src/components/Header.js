@@ -249,29 +249,30 @@ const renderSelectedCategory = () => {
                         <div className='flex items-center gap-2 md:gap-6'>
                             {userInfo ? (
                                 <>
-                                    <button
-                                        id="dropdownDefaultButton"
-                                        className="flex items-center focus:outline-none"
-                                        onClick={() => setExpand(!expand)}
-                                    >
-                                        <UserActive />
-                                        {userInfo.name}
-                                        <svg
-                                            className="w-3 h-3 ml-1"
-                                            aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 10 6"
-                                        >
-                                            <path
-                                                stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="m1 1 4 4 4-4"
-                                            />
-                                        </svg>
-                                    </button>
+                                  <button
+    id="dropdownDefaultButton"
+    className="flex items-center focus:outline-none"
+    onClick={() => setExpand(!expand)}
+>
+    <UserActive />
+    <span className="truncate w-[50px] md:max-w-[80px]">{userInfo.name}</span>
+    <svg
+        className="w-3 h-3 ml-1"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 6"
+    >
+        <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m1 1 4 4 4-4"
+        />
+    </svg>
+</button>
+
                                     {expand && (
                                         <div
                                             id="dropdown"
