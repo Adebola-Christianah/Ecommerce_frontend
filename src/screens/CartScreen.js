@@ -105,8 +105,9 @@ function CartScreen({ history }) {
                                                     
                                                 </div>
                                             </div>
-                                            <div className="text-sm text-gray-600">₦{item.price}</div>
+                                            
                                             <div className="flex items-center justify-between mb-4">
+                                            <div className="text-sm text-gray-600">₦{item.price}</div>
                                                 <select
                                                     className="form-select block p-2 border-gray-400 rounded-md"
                                                     value={item.qty}
@@ -123,9 +124,7 @@ function CartScreen({ history }) {
                                                 {quantityErrors[item.product] && (
                                                     <p className="text-red-500 text-sm">{quantityErrors[item.product]}</p>
                                                 )}
-                                            </div>
-
-                                            <div className="flex justify-between items-center">
+                                                  <div className="flex justify-between items-center">
                                                 <button
                                                     type="button"
                                                     className="text-red-500 focus:outline-none"
@@ -134,6 +133,9 @@ function CartScreen({ history }) {
                                                     <i className="fas fa-trash"></i> Remove
                                                 </button>
                                             </div>
+                                            </div>
+
+                                          
                                         </div>
                                     ))}
                                 </div>
@@ -192,7 +194,7 @@ function CartScreen({ history }) {
                                 </div>
 
                                 {/* Cart Summary */}
-                                <div className="flex flex-col md:flex-row gap-3 md:gap-0 md:justify-between mt-6">
+                                <div className="flex flex-col md:flex-row md:justify-between mt-6">
                                     <div className="mb-6 md:mb-0 px-4">
                                         <input
                                             type="text"
@@ -202,7 +204,7 @@ function CartScreen({ history }) {
                                             onChange={(e) => setCouponCode(e.target.value)}
                                         />
                                         <button
-                                            className="bg-red-500 text-white px-4 py-2 rounded h-12 w-full md:w-64"
+                                            className="bg-red-500 text-white px-4 mt-3 md:mt-0 py-2 rounded h-12 w-full md:w-64"
                                             onClick={applyCouponHandler}
                                         >
                                             Apply Coupon
