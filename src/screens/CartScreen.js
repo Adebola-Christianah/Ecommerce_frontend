@@ -91,21 +91,21 @@ function CartScreen({ history }) {
                             <Header />
                             <div className="bg-white w-[95%] mx-auto py-6 mt-4">
                                 {/* Cart Items Representation as Cards for Mobile */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div className="md:hidden grid grid-cols-1 gap-6">
                                     {cartItems.map((item) => (
                                         <div key={item.product} className="flex flex-col bg-white shadow-md rounded-lg p-4">
-                                            <div className="flex justify-between items-center mb-4">
+                                            <div className=" mb-4">
                                                 <img
                                                     src={item.image}
                                                     alt={item.name}
-                                                    className="h-24 w-24 object-cover rounded-lg"
+                                                    className="h-40 w-full object-cover rounded-lg"
                                                 />
                                                 <div>
                                                     <h2 className="text-lg font-semibold">{item.name}</h2>
-                                                    <p className="text-sm text-gray-600">₦{item.price}</p>
+                                                    
                                                 </div>
                                             </div>
-
+                                            <div className="text-sm text-gray-600">₦{item.price}</div>
                                             <div className="flex items-center justify-between mb-4">
                                                 <select
                                                     className="form-select block p-2 border-gray-400 rounded-md"
@@ -138,25 +138,78 @@ function CartScreen({ history }) {
                                     ))}
                                 </div>
 
-                                {/* Cart Total */}
-                                <div className="mt-6 md:flex md:justify-between">
-                                    <div>
+                                {/* Cart Items Table for Medium and Large Screens */}
+                                <div className="hidden md:block overflow-x-auto px-6 mx-auto bg-white rounded-lg">
+                                    <h1 className="text-2xl mb-4 mx-4">Shopping Cart</h1>
+                                    <table className="min-w-full divide-y divide-gray-200">
+                                        <thead>
+                                            <tr>
+                                                <th className="px-4 py-2 text-left text-gray-600 font-bold">Product</th>
+                                                <th className="pl-12 md:pl-0 md:px-4 py-2 text-left text-gray-600 font-bold">Price</th>
+                                                <th className="px-4 py-2 text-left text-gray-600 font-bold">Quantity</th>
+                                                <th className="px-4 py-2 text-left text-gray-600 font-bold">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="bg-white divide-y divide-gray-200">
+                                            {cartItems.map((item) => (
+                                                <tr key={item.product}>
+                                                    <td className="px-4 w-full py-2 flex gap-3 items-center">
+                                                        <img src={item.image} alt={item.name} className="h-16 w-16 object-cover rounded-lg" />
+                                                        <Link to={`/product/${item.product}`} className="text-blue-500 hover:underline">
+                                                            {item.name}
+                                                        </Link>
+                                                    </td>
+                                                    <td className="pl-12 md:pl-0 md:px-4 py-2">₦{item.price}</td>
+                                                    <td className="px-4 py-2">
+                                                        <select
+                                                            className="form-select block p-2 border-gray-400 rounded-md border focus:outline-none focus:border-blue-500 sm:text-sm"
+                                                            value={item.qty}
+                                                            onChange={(e) => handleQuantityChange(item.product, Number(e.target.value), item.countInStock)}
+                                                        >
+                                                            {[...Array(item.countInStock).keys()].map((x) => (
+                                                                <option key={x + 1} value={x + 1}>
+                                                                    {x + 1}
+                                                                </option>
+                                                            ))}
+                                                        </select>
+                                                        {quantityErrors[item.product] && (
+                                                            <p className="text-red-500 text-sm">{quantityErrors[item.product]}</p>
+                                                        )}
+                                                    </td>
+                                                    <td className="px-4 py-2">
+                                                        <button
+                                                            type="button"
+                                                            className="text-red-500 focus:outline-none"
+                                                            onClick={() => showDeleteModal(item.product)}
+                                                        >
+                                                            <i className="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {/* Cart Summary */}
+                                <div className="flex flex-col md:flex-row gap-3 md:gap-0 md:justify-between mt-6">
+                                    <div className="mb-6 md:mb-0 px-4">
                                         <input
                                             type="text"
                                             placeholder="Coupon Code"
-                                            className="border p-2 rounded mr-2 h-12"
+                                            className="border p-2 rounded mr-2 h-12 w-full md:w-64"
                                             value={couponCode}
                                             onChange={(e) => setCouponCode(e.target.value)}
                                         />
                                         <button
-                                            className="bg-red-500 text-white px-4 py-2 rounded h-12"
+                                            className="bg-red-500 text-white px-4 py-2 rounded h-12 w-full md:w-64"
                                             onClick={applyCouponHandler}
                                         >
                                             Apply Coupon
                                         </button>
                                     </div>
 
-                                    <div className="mt-4 md:mt-0 md:w-1/3 bg-gray-100 rounded-lg p-4">
+                                    <div className="bg-gray-100 rounded-lg p-4 md:w-1/3">
                                         <h2 className="text-xl mb-4">Cart Summary</h2>
                                         <div className="flex justify-between mb-2">
                                             <span>Subtotal:</span>
