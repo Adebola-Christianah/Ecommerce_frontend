@@ -53,7 +53,7 @@ const WishlistPage = () => {
                 <div>
                     <div className='w-[95%] mx-auto bg-white p-4 mt-4'>
                         <h1 className="text-2xl font-bold mb-6">Your Wishlist</h1>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {wishList.map(item => (
                                 <div key={item.product} className="border rounded-lg relative bg-gray-50">
                                     {item.discount > 0 && (
