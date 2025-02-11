@@ -360,15 +360,7 @@ function ProductScreen({ match, history }) {
             </li>
         )}
                             <ul className='border border-red-600 rounded-md my-3'>
-                                <li className='border-b '>
-                                    <div className='flex items-center gap-4 p-3'>
-                                        <DeliveryIcon/>
-                                        <div>
-                                            <p className='text-base font-semibold'>Free Delivery</p>
-                                            <p className='text-sm'>Enter your postal code for Delivery Availability</p>
-                                        </div>
-                                    </div>
-                                </li>
+                              
                                 <li className=' flex items-center gap-4 p-3'>
                                     <ReturnIcon/>
                                     <div>

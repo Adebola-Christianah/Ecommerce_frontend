@@ -345,32 +345,30 @@ const renderSelectedCategory = () => {
                     </div>
                 )}
 
-                {keyword === '' && offers && offers.length > 0 && (
-                    <div className="my-4 bg-white rounded-md p-4 md:w-[90%] lg:w-full mx-auto">
-                       {offers && Array.isArray(offers) && offers.length > 0 && offers.map((offer) => (
-<div key={offer.id} className="mb-6">
-    {offer.products && Array.isArray(offer.products) && offer.products.length > 0 && (
-        <div className="my-3 flex items-center gap-3">
+               { keyword==='' && offers &&
+  Array.isArray(offers) &&
+  offers
+    .filter((offer) => offer.end_date && new Date(offer.end_date) > new Date())
+    .map((offer) => (
+      <div key={offer.id} className="mb-6">
+        {offer.products && Array.isArray(offer.products) && offer.products.length > 0 && (
+          <div className="my-3 flex items-center gap-3">
             <div className="h-8 w-4 bg-red-500 rounded"></div>
-            <h2 className="text-sm text-red-500 font-bold">
-                {offer.offer_type}
-            </h2>
-        </div>
-    )}
-    {offer.products && Array.isArray(offer.products) && offer.products.length > 0 &&
-        offer.end_date && (
-            <Countdown end_date={offer.end_date} />
+            <h2 className="text-sm text-red-500 font-bold">{offer.offer_type}</h2>
+          </div>
         )}
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {offer.products && Array.isArray(offer?.products) && offer?.products?.map((product) => (
-            <Product key={product?._id} product={product} />
-        ))}
-    </div>
-</div>
-))}
+        {offer.products &&
+          Array.isArray(offer.products) &&
+          offer.products.length > 0 &&
+          offer.end_date && <Countdown end_date={offer.end_date} />}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {offer.products &&
+            Array.isArray(offer.products) &&
+            offer.products.map((product) => <Product key={product._id} product={product} />)}
+        </div>
+      </div>
+    ))}
 
-                    </div>
-                )}
 
                 <div className='w-[92%] mx-auto'><ProductGrid /></div>
          
